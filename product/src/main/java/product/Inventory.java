@@ -1,14 +1,14 @@
-package inventory;
+package product;
 
-import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class Inventory {
     @Id
     private String productId;
     private int quantity;
-
+    
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }

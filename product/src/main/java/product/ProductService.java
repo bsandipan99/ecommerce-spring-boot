@@ -9,6 +9,9 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
     
+    @Autowired
+    private InventoryClient inventoryClient;
+
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
@@ -19,6 +22,13 @@ public class ProductService {
 
     public void addProduct(Product product) {
         productRepository.save(product);
+        Inventory inventory = new Inventory();
+        inventory.setProductId( product.getId() );
+        inventory.setQuantity( 10 );
+
+        System.out.println(inventory.getProductId() + " --> " + inventory.getQuantity());
+
+        inventoryClient.addInventory(inventory);
     }
 
     public void updateProduct(Product product) {

@@ -9,7 +9,7 @@ public class InventoryService {
     @Autowired
     private InventoryRepository inventoryRepository;
 
-    public void addInventoryForTest(Inventory inventory) {
+    public void addInventory(Inventory inventory) {
         inventoryRepository.save(inventory);
     }
 
