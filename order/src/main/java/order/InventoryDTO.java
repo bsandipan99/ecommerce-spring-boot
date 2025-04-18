@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Inventory {
+public class InventoryDTO {
     @Id
     private String productId;
     private int quantity;

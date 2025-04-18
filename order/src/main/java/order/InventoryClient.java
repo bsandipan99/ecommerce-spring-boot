@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(name = "inventory-service")
 public interface InventoryClient {
     @GetMapping("/inventory/{productId}")
-    public Inventory getInventoryByProductId(@PathVariable String productId);
+    public InventoryDTO getInventoryByProductId(@PathVariable String productId);
 
     @PostMapping("/inventory")
-    public void addInventory(Inventory inventory);
+    public void addInventory(InventoryDTO inventory);
+
+    @PutMapping("/inventory/{id}")
+    public void updateInventory(@PathVariable String id, int quantity);
 }

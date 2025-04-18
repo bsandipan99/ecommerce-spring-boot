@@ -7,5 +7,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "product-service")
 public interface ProductClient {
     @GetMapping("/products/{id}")
-    public Product getProductById(@PathVariable String id);
+    public ProductDTO getProductById(@PathVariable String id);
 }

@@ -25,15 +25,16 @@ public class OrderService {
     }
 
     public void addOrder(OrderEntity order) {
-        Product product = productClient.getProductById(order.getProductId());
-        Inventory inventory = inventoryClient.getInventoryByProductId( product.getId() );
+        ProductDTO productDTO = productClient.getProductById(order.getProductId());
+        InventoryDTO inventoryDTO = inventoryClient.getInventoryByProductId( productDTO.getId() );
 
-        if(inventory.getQuantity() < order.getQuantity()) {
+        if(inventoryDTO.getQuantity() < order.getQuantity()) {
             throw new RuntimeException("Product not present in enough quantity!!!");    
         } else {
             orderRepository.save(order);
-            inventory.setQuantity(inventory.getQuantity() - order.getQuantity());
-            inventoryClient.addInventory( inventory );
+
+            int updatedQuantity = inventoryDTO.getQuantity() - order.getQuantity();
+            inventoryClient.updateInventory( productDTO.getId(), updatedQuantity );
         }
     }
 }
