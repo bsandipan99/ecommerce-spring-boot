@@ -9,8 +9,8 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
     
-    // @Autowired
-    // private InventoryClient inventoryClient;
+    @Autowired
+    private InventoryClient inventoryClient;
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();
@@ -20,15 +20,17 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(ProductRequest productRequest) {
+        Product product = new Product();
+        product.setId( productRequest.getId() );
+        product.setTitle( productRequest.getTitle() );
+        product.setPrice( productRequest.getPrice() );
         productRepository.save(product);
-        Inventory inventory = new Inventory();
-        inventory.setProductId( product.getId() );
-        inventory.setQuantity( 10 );
 
-        System.out.println(inventory.getProductId() + " --> " + inventory.getQuantity());
-
-        inventoryClient.addInventory(inventory);
+        InventoryDTO inventoryDTO = new InventoryDTO();
+        inventoryDTO.setProductId( productRequest.getId() );
+        inventoryDTO.setQuantity(productRequest.getQuantity() );
+        inventoryClient.addInventory(inventoryDTO);
     }
 
     public void updateProduct(Product product) {

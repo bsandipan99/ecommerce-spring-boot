@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(name = "inventory-service")
 public interface InventoryClient {
     @PostMapping("/inventory")
-    public void addInventory(@RequestBody Inventory inventory);
+    public void addInventory(@RequestBody InventoryDTO inventoryDTO);
 }
