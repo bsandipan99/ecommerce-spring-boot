@@ -9,8 +9,8 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
     
-    @Autowired
-    private InventoryClient inventoryClient;
+    // @Autowired
+    // private InventoryClient inventoryClient;
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();
