@@ -21,6 +21,7 @@ public class OrderController {
         return orderService.getOrderById(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public void addOrder(@RequestBody OrderEntity order) {
         orderService.addOrder(order);
