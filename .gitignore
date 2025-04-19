@@ -36,7 +36,7 @@ build/
 .env
 
 # dependencies
-/node_modules
+frontend/node_modules
 
 # log files
 npm-debug.log*
@@ -45,14 +45,14 @@ yarn-error.log*
 pnpm-debug.log*
 
 # testing
-/coverage
+frontend/coverage
 
 # eslint cache
-.eslintcache
+frontend/.eslintcache
 
 # next.js
-/.next
+frontend/.next
 
 
 # public folder environment variables
-public/env.js
+frontend/public/env.js
