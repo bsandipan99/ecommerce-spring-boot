@@ -9,7 +9,8 @@ public class Product {
     private String id;
     private String title;
     private double price;
-    
+    private String thumbnail;
+
     public void setPrice(double price) {
         this.price = price;
     }
@@ -22,6 +23,10 @@ public class Product {
         this.title = title;
     }
 
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
     public double getPrice() {
         return price;
     }
@@ -32,6 +37,10 @@ public class Product {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
     }
 
 }

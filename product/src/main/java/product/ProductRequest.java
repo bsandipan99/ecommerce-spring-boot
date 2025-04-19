@@ -10,7 +10,8 @@ public class ProductRequest {
     private String title;
     private double price;
     private int quantity;
-    
+    private String thumbnail;
+
     public void setPrice(double price) {
         this.price = price;
     }
@@ -27,6 +28,10 @@ public class ProductRequest {
         this.quantity = quantity;
     }
 
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
     public double getPrice() {
         return price;
     }
@@ -41,6 +46,10 @@ public class ProductRequest {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
     }
 
 }

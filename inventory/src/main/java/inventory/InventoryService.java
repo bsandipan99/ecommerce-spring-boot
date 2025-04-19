@@ -26,4 +26,8 @@ public class InventoryService {
         inventory.setQuantity(quantity);
         inventoryRepository.save(inventory);
     }
+
+    public void deleteInventory(String productId) {
+        inventoryRepository.deleteById(productId);
+    }
 }

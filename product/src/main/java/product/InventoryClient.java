@@ -7,4 +7,7 @@ import org.springframework.web.bind.annotation.*;
 public interface InventoryClient {
     @PostMapping("/inventory")
     public void addInventory(@RequestBody InventoryDTO inventoryDTO);
+
+    @DeleteMapping("/inventory/{id}")
+    public void deleteInventory(@PathVariable String id);
 }

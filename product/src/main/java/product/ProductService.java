@@ -25,6 +25,7 @@ public class ProductService {
         product.setId( productRequest.getId() );
         product.setTitle( productRequest.getTitle() );
         product.setPrice( productRequest.getPrice() );
+        product.setThumbnail( productRequest.getThumbnail() );
         productRepository.save(product);
 
         InventoryDTO inventoryDTO = new InventoryDTO();
@@ -39,5 +40,6 @@ public class ProductService {
 
     public void deleteProductById(String id) {
         productRepository.deleteById(id);
+        inventoryClient.deleteInventory(id);
     }
 }

@@ -26,6 +26,11 @@ public class InventoryController {
         inventoryService.updateInventory(productId, quantity);
     }
 
+    @DeleteMapping("/{productId}")
+    public void deleteInventory(@PathVariable String productId) {
+        inventoryService.deleteInventory(productId);
+    }
+
     @PostMapping
     public void addInventory(@RequestBody Inventory inventory) {
         inventoryService.addInventory(inventory);
