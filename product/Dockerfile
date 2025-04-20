@@ -4,6 +4,6 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean install -DskipTests
 FROM eclipse-temurin:21-jre
-COPY --from=build /app/target/product-service-0.0.1-SNAPSHOT.jar /product-service.jar
+COPY --from=build /app/target/product-0.0.1-SNAPSHOT.jar /product-service.jar
 EXPOSE 8081
 ENTRYPOINT ["java", "-jar", "/product-service.jar"]
