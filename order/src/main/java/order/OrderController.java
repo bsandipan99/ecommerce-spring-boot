@@ -21,7 +21,7 @@ public class OrderController {
         return orderService.getOrderById(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://ecommerce-frontend-ten-fawn.vercel.app/")
     @PostMapping
     public void addOrder(@RequestBody OrderEntity order) {
         orderService.addOrder(order);

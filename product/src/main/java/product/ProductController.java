@@ -10,7 +10,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
     
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://ecommerce-frontend-ten-fawn.vercel.app/")
     @GetMapping
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
