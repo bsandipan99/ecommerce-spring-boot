@@ -19,7 +19,7 @@ export default function ProductList() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch("https://ecommerce-product-service-7u88.onrender.com/products")
+        const response = await fetch("https://ecommerce-spring-boot-monolith.onrender.com/products")
 
         if (!response.ok) {
           throw new Error("Failed to fetch products")
