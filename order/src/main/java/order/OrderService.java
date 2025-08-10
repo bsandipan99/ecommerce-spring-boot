@@ -11,9 +11,6 @@ public class OrderService {
     private OrderRepository orderRepository;
     
     @Autowired
-    private ProductClient productClient;
-
-    @Autowired
     private InventoryClient inventoryClient; 
 
     public List<OrderEntity> getAllOrders() {
@@ -25,8 +22,7 @@ public class OrderService {
     }
 
     public void addOrder(OrderEntity order) {
-        ProductDTO productDTO = productClient.getProductById(order.getProductId());
-        InventoryDTO inventoryDTO = inventoryClient.getInventoryByProductId( productDTO.getId() );
+        InventoryDTO inventoryDTO = inventoryClient.getInventoryByProductId( order.getProductId() );
 
         if(inventoryDTO.getQuantity() < order.getQuantity()) {
             throw new RuntimeException("Product not present in enough quantity!!!");    
@@ -34,7 +30,7 @@ public class OrderService {
             orderRepository.save(order);
 
             int updatedQuantity = inventoryDTO.getQuantity() - order.getQuantity();
-            inventoryClient.updateInventory( productDTO.getId(), updatedQuantity );
+            inventoryClient.updateInventory( order.getProductId(), updatedQuantity );
         }
     }
 }
